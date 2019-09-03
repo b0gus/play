@@ -1,0 +1,3 @@
+## Resgister Globals
+
+http://www.wechall.net/challenge/training/php/globals/globals.php?login[0]=admin
