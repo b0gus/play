@@ -2,9 +2,10 @@ import json
 import operator
 from pprint import pprint as pp
 
-f = open("2018-19.txt")
+f = open("2018-19.txt") # 1415~ nop
 data = f.readlines()
-tmp = {}
+tmp = json.loads("08-19.json")
+# tmp = {}
 
 for i in data:
     if i[0] == "2":
@@ -14,7 +15,7 @@ def cal_elo(w, l):
     K = 16
     Ew = 1 / (1 + 10**((l-w)/400))
     El = 1 / (1 + 10**((w-l)/400))
-    print(Ew, El)
+#     print(Ew, El)
     w = w + K*(1-Ew)
     l = l + K*(0-El)
     return w, l
@@ -31,5 +32,5 @@ nba = sorted(tmp.items(), key=operator.itemgetter(1), reverse=True)
 
 pp(nba)
 
-# with open('nba.json', 'wb') as f:
-#     json.dump(tmp, f)
+with open('08-19.json', 'a') as f:
+    json.dump(tmp, f)
