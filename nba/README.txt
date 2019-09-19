@@ -28,3 +28,27 @@
 - TOR (Toronto Raptors)
 - UTA (Uta Jazz): NOJ
 - WAS (Washington Wizards): CHP, CHZ, BLT, CAP
+
+=======
+UTH > UTA
+SAN > SAS
+CHS > GONE (Chicago Stags)
+CHH > CHA
+AND > GONE (Anderson Packers)
+INO > GONE (Indianapolis Olympians)
+CLR > GONE (Cleveland Rebels)
+GOS > GSW
+BOM > GONE (St. Louis Bombers)
+WAT > GONE (Waterloo Hawks)
+HUS > GONE (Toronto Huskies)
+JET > GONE (Indianapolis Jets)
+SHE > GONE (Sheboygan Red Skins)
+DEF > GONE (Detroit Falcons)
+BAL > GONE (Baltimore Bullets)
+PIT > GONE (Pittsburgh Ironmen)
+DN > GONE (Denver Nuggets)
+PHL > PHI
+PRO > GONE (Providence Stream Rollers)
+
+
+sed -i 's/Original/Change/g' *
