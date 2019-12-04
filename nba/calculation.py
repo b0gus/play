@@ -13,8 +13,8 @@ def cal_elo(w, l):
 conn = sqlite3.connect("nba.db")
 
 c = conn.cursor()
-start = '1946-10-01' # 10~
-end = '2019-07-01' # ~7
+start = '2017-10-01' # 10~
+end = '2018-07-01' # ~7
 
 tmp = {}
 
