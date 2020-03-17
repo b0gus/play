@@ -1,0 +1,19 @@
+1. Innovation sandbox : Explore new projects that showcase the potential for creativity, then bring new ideas and code to your own AI innovations.
+
+- Microsoft Math(Cognitive)
+: OCR(Optical Character Recognition) 기술로 사진 속의 수식 인식, 문제를 풀고 답과 해법을 도출
+
+- Celebs Like Me(DNN)
+: Facial recognition으로 사진 속 얼굴을 인식하고, 유사한 유명인들을 매칭함
+: Bing Satori Knowledge Graph와 Bing Image Graph를 통해 학습
+
+- Pix2Story(Conversational AI, DNN, NLP)
+: 사진을 스캔하고 작문 스타일을 적용한 후 이야기를 생성 - 창의적 활동을 하는 AI에 대한 연구
+: 이야기 생성에는 NLP(Natural Language Processing) 사용
+
+- Snip Insights(Cognitive)
+: 사진(스크린샷)에서 다양한 정보를 도출해내는 도구, 다운로드해 사용 가능
+: 이미지에서 텍스트 추출 및 번역, 이미지 속 인물/장소/사물 자동 태그 등
+
+- Machine Reading(DNN)
+: MRC(Machine Reading Comprehension)은 문서(텍스트)를 이해하고 이에 대한 질문을 답함
