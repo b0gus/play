@@ -1,0 +1,116 @@
+* Innovation sandbox : Explore new projects that showcase the potential for creativity, then bring new ideas and code to your own AI innovations.
+
+- Microsoft Math(Cognitive)
+: OCR(Optical Character Recognition) 기술로 사진 속의 수식 인식, 문제를 풀고 답과 해법을 도출
+
+- Celebs Like Me(DNN)
+: Facial recognition으로 사진 속 얼굴을 인식하고, 유사한 유명인들을 매칭함
+: Bing Satori Knowledge Graph와 Bing Image Graph를 통해 학습
+
+- Pix2Story(Conversational AI, DNN, NLP)
+: 사진을 스캔하고 작문 스타일을 적용한 후 이야기를 생성 - 창의적 활동을 하는 AI에 대한 연구
+: 이야기 생성에는 NLP(Natural Language Processing) 사용
+
+- Snip Insights(Cognitive)
+: 사진(스크린샷)에서 다양한 정보를 도출해내는 도구, 다운로드해 사용 가능
+: 이미지에서 텍스트 추출 및 번역, 이미지 속 인물/장소/사물 자동 태그 등
+
+- Machine Reading(ML, DNN)
+: MRC(Machine Reading Comprehension)은 문서(텍스트)를 이해하고 이에 대한 질문을 답함
+
+- Style Transfer(Cognitive)
+: 사진을 통해 새로운 이미지들을 생성해내고, 새로운 스타일을 입힘(카메라 필터와 유사)
+
+- Sketch2Code(Cognitive)
+: 손으로 그린 그림을 HTML(Hyper Text Mark-up Language), 즉 웹 페이지로 변환
+
+- Gen Studio(Cognitive, AI for Good)
+: 저명한 미술작품들을 살펴보는 과정에서 AI가 작품들을 추천 및 변형해 새로운 경험을 할 수 있도록 함
+: GAN(Generative Adversarial Networks) 활용
+
+
+* Business scenarios : Learn how AI innovations are being applied to business cases to improve efficiencies, reduce costs, accelerate learning, and gain new insights.
+
+- Insights and Discovery Accelerator
+: OCR을 통해 책을 비롯한 문서를 디지털 데이터로 뽑아 분석하는 도구
+: Microsoft AI를 이용해 대량의 비정형 데이터를 탐색하는데 도움을 줌
+: 잡지사, 출판사 등에서 활용
+: 실습(체험)은 불가능
+
+- Vector Search(ML, DNN, DLP)
+: 데이터를 벡터화 시키고, 벡터 간 거리는 데이터 간의 유사도를 의미
+: Approximate nearest neighbor(ANN) 알고리즘 사용해 벡터화된 데이터를 효율적으로 검색
+: MS의 검색 엔진인  Bing에서 사용하는 검색 기술.
+
+- JFK Files(Cognitive)
+: 사진, 수기문서, 정부문건 등 복잡한 파일들을 대상으로 Azure Cognitive Search를 사용해 정보를 추출하는 기술
+
+- PoseTracker(ML, DNN)
+: CNN(Convolution Neural Networks)를 통해 3D로 사물을 인식하고, 움직임을 캡처 및 추적하는 기술
+
+- Spektacom(ML)
+: 크리켓(야구와 유사한 스포츠) 배트에 스티커 센서를 부착해 배트의 속도, 회전, 스윙 데이터를 분석
+: 실습(체험)은 불가능
+
+
+* AI for society : AI innovators are applying technology tools to the most critical issues of our day – the environment, humanitarian issues, accessibility, and more. Learn about using AI for good.
+
+- Angel Eyes(ML, Cognitive, AI for Good)
+: 아기들이 자는 자세와 환경을 관찰해주는 IoT 기기
+: 실습(체험)은 불가능
+
+- Clean Water AI(ML, DNN, AI for Good)
+: 식수 내의 박테리아 및 위험 입자를 감지해 물의 오염도를 측정해줌
+: 도시 차원에서 이러한 기술이 탑재된 IoT 기기를 수자원에 배치해 실시간으로 물의 오염도를 탐지할 수 있음
+: 실습(체험)은 불가능
+
+- Gen Studio(Cognitive, AI for Good)
+: 저명한 미술작품들을 살펴보는 과정에서 AI가 작품들을 추천 및 변형해 새로운 경험을 할 수 있도록 함
+: GAN(Generative Adversarial Networks) 활용
+
+- PoseTracker(ML, DNN)
+: CNN(Convolution Neural Networks)를 통해 3D로 사물을 인식하고, 움직임을 캡처 및 추적하는 기술
+
+- Snow Leopard Trust(ML, Cognitive)
+: 연구원들이 위기의 동물인 눈표범을 찾고 보호할 수 있도록 도움을 주는 기술
+: MMLSpark(Microsoft Machine Learning for Apache Spark), Azure Cognitive Services를 이용해 배치된 카메라들의 촬영결과에서 위장한 눈표범들을 찾아냄
+: 실습(체험)은 불가능
+
+
+* Autonomous systems : Microsoft AI applies machine learning, machine teaching, and intelligent robotics to move systems beyond automation and towards dynamic, responsive, autonomous solutions.
+
+- AirSim - Drones(Edge AI, Autonomous Systems)
+: 실 환경을 3D로 구현하고, 드론을 띄워 사진 촬영 등의 행위를 수행할 수 있도록 하는 시뮬레이션 도구
+: 실습(체험)은 불가능
+
+- Intelligent Robotics(Autonomous Systems)
+: 사람과 기기들(기계) 간 소통 및 콜라보레이션을 돕는 기술
+
+- Machine Teaching(Autonomous Systems)
+: 데이터를 통해 기계를 학습시키는 머신러닝에서, 데이터에 더해 아니라 사람이 직접 기계 학습에 관여하기 위한 실험적 기술
+
+
+* Security and responsibility : Discover how we are applying our AI principles to create solutions that empower privacy, security, transparency, and inclusiveness.
+
+- Differential privacy(Responsible AI, ML)
+: 프라이버시를 위해 개인정보를 보호하기 위한 머신러닝 기술
+: 머신러닝을 위해서는 데이터가 많을수록 좋지만, 데이터가 많을수록 프라이버시를 침해할 가능성도 높아짐. 이러한 문제 해결을 위한 연구.
+: 통계적인 노이즈를 데이터에 추가해 개인정보를 덮으면서도 데이터의 질은 유지하는 컨셉트
+: 실습(체험)은 불가능
+
+- Homomorphic Encryption(HE)(Responsible AI)
+: 데이터가 암호화 된 상태에서 계산을 수행할 수 있도록 하는 기술
+: 컨텍스트를 그대로 유지하면서 암호화된 데이터셋으로 머신러닝을 수행할 수 있음
+: Microsoft SEAL(Simple Encrypted Arithmetic Library) API 사용
+
+- Responsible Conversational AI(Conversational AI, Cognitive)
+: Conversational AI - 기업들이 고객들과 상호작용한느 새로운 방법으로 SNS, 챗봇 등 다양한 채널 포함
+: 이러한 봇(bot)들이 사람들의 신뢰를 얻을 수 있는 방안을 모색하는 연구
+
+
+* 링크 : https://www.microsoft.com/en-us/ai/ai-lab-projects
+실습이 가능할 것 같은 기술들만 정리해봤음.
+정리한거 토대로 사이트 살펴보고, 관심가는 기술 몇 가지 골라보자.
+
+이후 실습 진행/사용된 기법 탐구
+
