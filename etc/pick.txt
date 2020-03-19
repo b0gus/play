@@ -1,0 +1,75 @@
+* Innovation sandbox
+
+- Gen Studio(Cognitive, AI for Good)
+: 저명한 미술작품들을 살펴보는 과정에서 AI가 작품들을 추천 및 변형해 새로운 경험을 할 수 있도록 함
+: GAN(Generative Adversarial Networks) 활용
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-gen-studio
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일 등
+: AI for society 카테고리에도 포함되어, 그쪽에서 활용해도 될듯!
+: 실습: https://gen.studio/
+	: 웹에서 직접 체험 가능
+
+- Snip Insights(Cognitive)
+: 사진(스크린샷)에서 다양한 정보를 도출해내는 도구, 다운로드해 사용 가능
+: 이미지에서 텍스트 추출 및 번역, 이미지 속 인물/장소/사물 자동 태그 등
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-snip-insights
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일 등
+: 실습: https://github.com/Microsoft/ailab/releases
+	: 설치 후 체험
+
+
+* business scenarios
+
+- Vector Search(ML, DNN, DLP)
+: 데이터를 벡터화 시키고, 벡터 간 거리는 데이터 간의 유사도를 의미
+: Approximate nearest neighbor(ANN) 알고리즘 사용해 벡터화된 데이터를 효율적으로 검색
+: MS의 검색 엔진인  Bing에서 사용하는 검색 기술.
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-vector-search
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일 등
+: 실습: https://github.com/Microsoft/SPTAG
+	: vmware 사용 경험 없다면 어려울듯
+
+- JFK Files(Cognitive)
+: 사진, 수기문서, 정부문건 등 복잡한 파일들을 대상으로 Azure Cognitive Search를 사용해 정보를 추출하는 기술
+: 사진, 문서에서 정볼르 추출하는 것이 유용하게 쓰일 것 같아서.
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-jfk-files
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일 등
+: 실습: https://jfk-demo.azurewebsites.net/#/
+	: 웹에서 직접 체험 가능
+
+
+* autonomous systems
+
+- Intelligent Robotics(Autonomous Systems)
+: 사람과 기기들(기계) 간 소통 및 콜라보레이션을 돕는 기술
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-intelligent-robotics
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일 등
+: 실습: https://github.com/Microsoft/AI-Robot-Challenge-Lab
+	: 실습이 재밌어보이나 난이도가 있음
+	: 차후 소논문 주제로 활용하는게 좋을듯
+
+- Machine Teaching(Autonomous Systems)
+: 데이터를 통해 기계를 학습시키는 머신러닝에서, 데이터에 더해 아니라 사람이 직접 기계 학습에 관여하기 위한 실험적 기술
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-machine-teaching
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일
+: 실습: 사실상 불가능 할 것으로 보이나, machine teaching architecture가 공개되어 있어 이를 잘 정리해 포함시킬 수 있을듯
+
+
+* Security and responsibility
+
+- Responsible Conversational AI(Conversational AI, Cognitive)
+: Conversational AI - 기업들이 고객들과 상호작용한느 새로운 방법으로 SNS, 챗봇 등 다양한 채널 포함
+: 이러한 봇(bot)들이 사람들의 신뢰를 얻을 수 있는 방안을 모색하는 연구
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-conversational-ai
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일
+: 실습: 사실상 불가능 할 것으로 보이나, 'Responsible bots: 10 guidelines for developers of conversational AI' 문서를 제공하고 있어 이를 잘 정리해 포함시킬 수 있을듯
+
+- Homomorphic Encryption(HE)(Responsible AI)
+: 데이터가 암호화 된 상태에서 계산을 수행할 수 있도록 하는 기술
+: 컨텍스트를 그대로 유지하면서 암호화된 데이터셋으로 머신러닝을 수행할 수 있음
+: Microsoft SEAL(Simple Encrypted Arithmetic Library) API 사용
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-he
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일
+: 실습: https://github.com/Microsoft/SEAL
+	: 대학원 논문급인듯.
+
