@@ -1,0 +1,52 @@
+* 개요
+- AI
+- 오픈소스
+- AI Lab Projects
+
+* Snip Insights
+- Innovation sandbox
+- 필요성
+- 아이디어
+- 해결책
+- 실습
+: 프로그램을 공개해 둔 상태로, 우분투 가상머신 상에 설치해 실습 수행
+: 캡쳐한 이미지에 포함된 텍스트(글자, 숫자 등), 인물, 사물 등을 인식하고 이에 대한 설명(관련 뉴스)을 제시하고 유사한 이미지를 추천하는 등의 기능을 수행
+: AI 개발자를 위해 Microsoft에서 공개한 Azure Cognitive Services라는 API를 이용해 개발되었다고 소개
+
+* JFK Files
+- Business scenarios
+- 필요성
+- 아이디어
+- 해결책
+- 실습
+: 웹에 구현되어있는 서비스를 통해 실습
+: 사진, 손글씨, 정부문건 등 케네디 대통령 암살 사건과 관련된 34000페이지 이상의 자료를 디지털화 시키고, 문맥 등 다양한 요소를 기준으로 분석할 수 있도록 함
+: Azure Search와 Azure Cognitive Services를 함께 사용해 생성된 솔루션이라고 소개
+
+* Gen Studio
+- AI for society
+- 필요성
+- 아이디어
+- 해결책
+- 실습
+: 웹에 구현되어있는 서비스를 통해 실습
+: 존재하는 예술작품 이미지를 선택하면 이와 유사한 새로운 이미지를 생성해내며, 관련된 작품들을 소개해주고 작품들의 속성을 결합시키는 등 다양한 시도를 가능하게 함
+: 딥러닝 기법 중 하나인 GAN(Generative Adversarial Networks)를 활용한 서비스라고 소개
+
+* Machine Teaching
+- Autonomous systems
+- 필요성
+- 아이디어
+- 해결책
+- 탐구
+: 정리된 것 보고..
+
+* Responsible Conversational AI
+- Security and responsibility
+- 필요성
+- 아이디어
+- 해결책
+- 탐구
+: 정리된 것 보고..
+
+
