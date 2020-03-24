@@ -1,0 +1,136 @@
+# 주제 : 최신 AI 기술 탐구 및 실습
+# 목적 : Microsoft가 공개한 최신 AI 기술들을 살펴보며 해당 분야의 동향을 파악하고, 오픈소스의 힘을 체험해 봄
+
+< 필독 >
+● 본 문서는 도현학생에게 우리가 진행할 탐구에 대해 설명하기 위한 것
+● MS AI Lab Projects에서 공개한 기술들 중 도현학생이 선택한 기술들을 카테고리별로 분류해 각 페이지에 정리해 두었음
+● 카테고리별 하나의 기술을 실습하고, 각 기술에서 사용된 기법들을 러프하게 다룰 예정 (실습가능성을 기준으로 우리가 가져갈 기술들을 파란색으로 표시해 두었음)
+● 정리된 내용을 보면 파란색으로 표시된 웹페이지 주소(관련 정보)가 있고, 웹페이지에 들어가면 각 기술의 필요성(the need), 아이디어(the idea), 해결책(the solution), 기술 디테일(technical details) 등의 정보를 확인할 수 있음
+● 우리가 가져갈 5가지 기술들(Snip Insights, JFK Files, Gen Studio, Machine Teaching, Responsible Conversational AI) 각각에 대해 도현학생이 필요성, 아이디어, 해결책, 기술 디테일을 정리(번역) 해야 함. 이는 도현학생이 각 기술들을 가장 빠르게 이해할 수 있는 방법이라고 생각되며, 이후 보고서 작성에도 담을 수 있어 1석 2조의 효과를 기대. (작성방법은 다음 페이지의 주황색 예시 참고)
+● 실습은 시간을 잡아서 함께 진행하는 방향으로 생각 중
+● 고등학생 레벨에서 진행하기에 상당히 수준 높은 탐구라고 생각되어, 도현학생이 의지를 가지고 잘 따라와 주었으면 하는 바람^^
++ 참고 : Intelligent Robotics 기술의 경우 실습이 난이도가 있어, 차후 단독으로 소논문 주제로 활용하는 방안을 고려 중.
+
+
+* Innovation sandbox
+Explore new projects that showcase the potential for creativity, then bring new ideas and code to your own AI innovations.
+
+- Snip Insights(Cognitive)
+: 사진(스크린샷)에서 다양한 정보를 도출해내는 도구, 다운로드해 사용 가능
+: 이미지에서 텍스트 추출 및 번역, 이미지 속 인물/장소/사물 자동 태그 등
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-snip-insights
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일 등
+: 실습: https://github.com/Microsoft/ailab/releases
+	: 설치 후 체험
+
+Snip insight 기술은 사용자가 사진, 스냅샷 등의 정보에 대해 지적인 판단을 할 수 있도록 하는 기술입니다. 예를 들어 캡쳐한 이미지를 문자로 변환하거나 자동적으로 이미지를 확인하고 태그를 달 수 있습니다.
+1) The need
+사용자가 어떠한 도구를 이용해서 반복적인 작업을 간소화할 수 있으면 어떨까요? 사람은 이미지의 시각적 정보를 인식하여 태그를 달고 새로운 아이디어를 찾고, 새로운 것을 배웁니다. 하지만 시각적 정보는 technical environment로 번역하기 어렵다? (아마 시각 정보를 디지털 정보로 바꾸는 것은 쉽지 않다는 뜻)
+2) The idea
+시각 정보를 사용하려면 많은 반복적인 작업이 필요합니다. AI는 그러한 반복적인 작업을 단순화합니다. 유명한 사람이나 지역을 인식하거나, 책을 스캔한 이미지를 텍스트로 인식하거나, 사진에 찍힌 신발을 검색하는 등의 작업을 할 수 있습니다.
+3) The solution
+Snip insight는 사용자가 snip, screenshot에서 지적인 판단을 얻을 수 있는 open source 코드입니다. Snip insight는 클라우드 AI 서비스를 이용하여 이미지를 텍스트로 전환하는 등의 지적인 판단을 할 수 있도록 합니다.
+
+
+
+
+
+
+
+
+* business scenarios
+Learn how AI innovations are being applied to business cases to improve efficiencies, reduce costs, accelerate learning, and gain new insights.
+
+- Vector Search(ML, DNN, DLP)
+: 데이터를 벡터화 시키고, 벡터 간 거리는 데이터 간의 유사도를 의미
+: Approximate nearest neighbor(ANN) 알고리즘 사용해 벡터화된 데이터를 효율적으로 검색
+: MS의 검색 엔진인  Bing에서 사용하는 검색 기술.
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-vector-search
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일 등
+: 실습: https://github.com/Microsoft/SPTAG
+	: vmware 사용 경험 없다면 어려울 듯
+
+- JFK Files(Cognitive)
+: 사진, 수기문서, 정부문건 등 복잡한 파일들을 대상으로 Azure Cognitive Search를 사용해 정보를 추출하는 기술
+: 사진, 문서에서 정볼르 추출하는 것이 유용하게 쓰일 것 같아서.
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-jfk-files
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일 등
+: 실습: https://jfk-demo.azurewebsites.net/#/
+	: 웹에서 직접 체험 가능
+2. JFK files
+JFK files은 사진, 수기, 정부 문서 등 여러 형식이 섞인 파일에서 정보를 추출하는 기술이다.
+1) The need
+2017년 케네디 암살에 관련된 자료 34000페이지가 공개되었습니다. 학자들이 이 문서를 전부 읽으려면 엄청난 시간이 걸릴 것입니다. 우리는 공개된 문서의 새로운 정보들을 어떻게 받아들일 수 있을까요?
+2) The idea
+우리는 마이크로소프트의 AI를 이용하여 수 많은 데이터를 이해하고, 조직화하고 수기로 작성된 정보를 해석하고, 핵심 주제를 배울 수 있습니다. 우리는 Azure search, Cognitive service를 합쳐서 이러한 문제들을 해결할 수 있습니다. 
+3) The solution
+Cognitive search는 데이터 소스에서 정보를 가져온 후 인지적인 기술을 이용하여 지식을 얻어냅니다.
+* AI for society
+AI innovators are applying technology tools to the most critical issues of our day – the environment, humanitarian issues, accessibility, and more. Learn about using AI for good.
+
+- Gen Studio(Cognitive, AI for Good)
+: 저명한 미술작품들을 살펴보는 과정에서 AI가 작품들을 추천 및 변형해 새로운 경험을 할 수 있도록 함
+: GAN(Generative Adversarial Networks) 활용
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-gen-studio
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일 등
+: 실습: https://gen.studio/
+	: 웹에서 직접 체험 가능
+Gen studio는 AI 기술을 이용하여 Metropolitan 박물관에 있는 예술 작품들을 시각적으로, 창의적으로 탐색합니다.
+1) The need
+Metropolitan 박물관은 마이크로소프트, MIT와 협력하여 AI가 어떻게 사람들을 예술에 연결할 수 있을지 알아보았습니다. 목표는 전 세계의 관람객들이 세계 최고의 예술 작품 컬렉션 중에서 작품을 발견하고, 배우고 만들 수 있는 새로운 방법을 상상하는 것입니다.
+2) The idea
+이 팀은 두 가지 질문에서 출발했습니다. 첫 번째 질문은 GAN (generative adversarial network) 알고리즘을 이용해서 예술 작품들을 새로운 방법으로 합칠 수 있을까? 입니다. 만약에 가능하다면, 이러한 합쳐진 작품을 박물관 내 소장품 내에서 검색할 수 있을까? 입니다.
+3) The solution
+Gen studio는 사용자들이 직접 상상하던 이미지를 검색할 수 있도록 하기 위해 GAN 알고리즘을 활용한 AI 기술로 구현되었습니다. Gen studio는 새로운 랜덤 작품을 만들 뿐만 아니라 실제 작품들 사이를 연결해줍니다.
+* autonomous systems
+Microsoft AI applies machine learning, machine teaching, and intelligent robotics to move systems beyond automation and towards dynamic, responsive, autonomous solutions.
+
+- Intelligent Robotics(Autonomous Systems)
+: 사람과 기기들(기계) 간 소통 및 콜라보레이션을 돕는 기술
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-intelligent-robotics
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일 등
+: 실습: https://github.com/Microsoft/AI-Robot-Challenge-Lab
+	: 실습이 재밌어보이나 난이도가 있음
+	: 차후 소논문 단독주제로 활용하는게 좋을 듯
+
+- Machine Teaching(Autonomous Systems)
+: 데이터를 통해 기계를 학습시키는 머신러닝에서, 데이터에 더해 아니라 사람이 직접 기계 학습에 관여하기 위한 실험적 기술
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-machine-teaching
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일
+: 실습: 사실상 불가능 할 것으로 보이나, machine teaching architecture가 공개되어 있어 이를 잘 정리해 포함시킬 수 있을 듯
+1) The need
+기존 AI를 구현하던 머신러닝은 수 많은 데이터를 입력하여 기계가 스스로 학습하도록 하는 방식이다. 하지만 굉장히 다양한 분야에 AI가 사용되고 있고 AI 전문가가 아닌 다른 분야의 전문가들도 AI에 대한 필요성을 느끼고 있다.
+2) The idea
+  
+이러한 경우 각 분야의 전문가들은 사람을 가르치는 것과 유사한 방법을 이용하여 기계를 가르치는 방법이 유용할 수 있다. 각 분야 전문가들은 답을 찾아내는 중요한 단서들을 가르쳐서 기계가 답을 알아낼 수 있도록 한다.
+3) The solution
+마이크로소프트에서는 이러한 기술을 machine teaching이라고 부른다. 이 기술은 AI 기술자가 아닌 사람도 AI를 만들 수 있도록 한다. 또한, 머신러닝에 필요한 방대한 양의 데이터가 없어도 된다.
+
+* Security and responsibility
+Discover how we are applying our AI principles to create solutions that empower privacy, security, transparency, and inclusiveness.
+
+- Responsible Conversational AI(Conversational AI, Cognitive)
+: Conversational AI - 기업들이 고객들과 상호작용한느 새로운 방법으로 SNS, 챗봇 등 다양한 채널 포함
+: 이러한 봇(bot)들이 사람들의 신뢰를 얻을 수 있는 방안을 모색하는 연구
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-conversational-ai
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일
+: 실습: 사실상 불가능 할 것으로 보이나, 'Responsible bots: 10 guidelines for developers of conversational AI' 문서를 제공하고 있어 이를 잘 정리해 포함시킬 수 있을 듯
+
+대화 가능한 AI는 기업들이 고객들과 소통할 수 있는 새로운 채널이다. 이 소통을 극대화하기 위해서는 대화하는 봇들이 사람들의 신뢰를 얻어낼 수 있는 방향으로 발전해야 한다.
+1) The need
+대화 형 AI의 지능은 봇이 책임감있게 상호 작용할 수 있도록 기술과 윤리적 통찰력이 모두 필요한 개발자가 제공합니다.
+
+2) The idea
+우리는 대화식 AI 플랫폼에 대해 20년이 넘는 연구를 해왔으며 최신 기술 발전과 신뢰할 수있는 접근 방식이 결합되어 있습니다.
+
+3) The solution
+오늘날 급격히 증가하는 대화 형 AI 기능으로 인해 발생하는 문제를 해결하는 데 도움이 되는 개발자를 위한 지침 및 리소스 세트.
+
+- Homomorphic Encryption(HE)(Responsible AI)
+: 데이터가 암호화 된 상태에서 계산을 수행할 수 있도록 하는 기술
+: 컨텍스트를 그대로 유지하면서 암호화된 데이터셋으로 머신러닝을 수행할 수 있음
+: Microsoft SEAL(Simple Encrypted Arithmetic Library) API 사용
+: 관련 정보: https://www.microsoft.com/en-us/ai/ai-lab-he
+	: 필요성, 아이디어, 해결책, 소개 영상, 기술 디테일
+: 실습: https://github.com/Microsoft/SEAL
+	: 고등학교 수준에서 불가능할듯
