@@ -1,0 +1,27 @@
+* 참고자료
+: https://www.microsoft.com/en-us/ai/ai-lab-he
+: https://www.microsoft.com/en-us/research/project/microsoft-seal/
+: https://github.com/Microsoft/SEAL
+: encrypted comparison, sorting, or regular expressions
+: https://en.wikipedia.org/wiki/Microsoft_SEAL
+: https://m.blog.naver.com/PostView.nhn?blogId=aepkoreanet&logNo=221561794559&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+
+* cf. 동형암호 OS 라이브러리
+: HELib, PALISADE - IBM
+: HEAAN, FHEW, TFHE - SNU
+
+- 디지털 증거 수직을 위한 보전명령 도입 및 현행절차 개선에 관한 연구
+: 암호화된 상태에서도 분석, 검색, 결과도출이 가능한 동형암호를 이용한 데이터분석이 각 분야에서 실용화를 앞두고 있다(?)
+
+- 완전 동형 암호 라이브러리의 성능 분석
+: HElib, TFHE, SEAL 세 라이브러리의 덧셈 연산 성능 비교
+	: 덧셈 속도는 SEAL이 압도적(수를 비트 단위로 표현하지 않고 수 자체를 암호화해서 사용하기 때문)
+: SEAL을 제외한 나머지 라이브러리는 비교 연산 성능까지 비교
+	: 비트 단위 연산을 지원하는 HElib과 TFHE의 경우 KSA 연산 결과를 통해 값 비교
+
+- Secure Search via Multi-Ring Fully Homomorphic Encryption (2018)
+: FHE 상 검색 프로토콜을 HELib으로 구현
+
+- Quantum Search on Encrypted Data Based on Quantum Homomorphic Encryption (2020)
+: We propose a homomorphic search protocol based on quantum homomorphic encryption, in which a client Alice with limited quantum ability can give her encrypted data to a powerful but untrusted quantum server and let the server search for her without decryption. By outsourcing the interactive keyupdate process to a trusted key center, Alice only needs to prepare and encrypt her original data and to decrypt the ciphered search result in linear time. Besides, we also present a compact and perfectly secure quantum homomorphic evaluation protocol for Cliford circuits, where the decryption key can be calculated by Alice with polynomial overhead with respect to the key length.
+: 새로운 이론(정리, 알고리즘)을 담은 네이처지 논문
