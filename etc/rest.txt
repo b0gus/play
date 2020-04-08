@@ -1,0 +1,24 @@
+MS AI Projects
+
+- Innovation sandbox
+: 잠재적인 창의성을 보여주는 새로운 프로젝트를 탐색하고, 새로운 아이디어와 코드를 자신의 AI 혁신에 적용해보자.
+: Snip Insights
+
+- Business scenarios
+: 효율성을 향상시키고, 비용을 절감하며, 학습을 가속화하고, 새로운 통찰력을 얻기 위해 AI 혁신이 어떻게 비즈니스 사례에 적용되고 있는지 살펴보자.
+: JFK Files
+
+- AI for society
+: AI 혁신가들은 오늘날 가장 중요한 문제인 환경, 인도주의 문제, 접근성 등에 기술을 적용시키고 있다. 좋은 일에 AI가 어떻게 사용되는지 알아보자.
+: Gen Studio
+
+- Autonomous systems
+: 마이크로소프트 AI는 지능형 로봇 등의 기술을 통해 자동화를 넘어선 역동적이고 반응적인 자율 시스템을 탄생시키기 위해 노력하고 있다.
+
+- Security and responsibility
+: 프라이버시, 보안, 투명성 및 포괄성을 강화하는 솔루션을 만들기 위해 적용하고 있는 AI 관련 정책들을 소개.
+: 실험적
+
+
+
+
