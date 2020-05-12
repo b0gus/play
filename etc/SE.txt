@@ -1,0 +1,16 @@
+* Searchable Encryption
+
+- Acra (19.7.)
+: https://www.cossacklabs.com/blog/secure-search-over-encrypted-data-acra-se.html
+: https://github.com/cossacklabs/acra/
+
+- Stealth (20.3.)
+: https://cyborg.co/tech/searchable-encryption
+: 가장 최신인듯하며, 퍼포먼스까지 검증되어 있는데, 오픈소스는 아닌듯
+
+- OpenSSE
+: https://github.com/OpenSSE/crypto-tk
+
+- blind_index
+: https://github.com/ankane/blind_index
+
