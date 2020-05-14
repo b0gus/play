@@ -3,14 +3,26 @@
 - Acra (19.7.)
 : https://www.cossacklabs.com/blog/secure-search-over-encrypted-data-acra-se.html
 : https://github.com/cossacklabs/acra/
-
-- Stealth (20.3.)
-: https://cyborg.co/tech/searchable-encryption
-: 가장 최신인듯하며, 퍼포먼스까지 검증되어 있는데, 오픈소스는 아닌듯
+	: 검색 기능은 유료 버젼에서만 사용 가능
 
 - OpenSSE
 : https://github.com/OpenSSE/crypto-tk
+	: 해볼만?
 
 - blind_index
 : https://github.com/ankane/blind_index
+	: 덜 해볼만?
+
+- Stealth (20.3.)
+: https://cyborg.co/tech/searchable-encryption
+: 가장 최신인듯하며, 퍼포먼스까지 검증되어 있다는데, 오픈소스는 아닌듯
+
+- StrongSalt
+: https://www.strongsalt.com/
+: 또 다른 유료 솔루션
+
++ https://www.jstage.jst.go.jp/article/ipsjjip/27/0/27_763/_pdf
+: Helping Johnny to Search: Usable Encrypted Search on Webmail System
+	: 작년 말에 나온 논문
+
 
