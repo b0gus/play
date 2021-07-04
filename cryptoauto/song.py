@@ -75,7 +75,7 @@ while True:
         start_time = get_start_time("KRW-BTC") # 최근 시간봉 시작시간
         end_time = start_time + datetime.timedelta(hours=1)
         
-        most_traded_set = most_traded(14)
+        most_traded_set = most_traded(18)
         most_traded_set -= most_traded_old #거래량 급증 코인 확인
         ticker = ticker_selection(most_traded_set)
 
@@ -99,6 +99,7 @@ while True:
                     upbit.sell_market_order(pick, amount)
                     print(now, " : sell ", pick)
                 else:
+                    print(now, " nothing to sell, ", pick)
                     most_traded_old = most_traded(27)
                     pick = "KRW-BTC"
             time.sleep(1)
@@ -117,7 +118,9 @@ while True:
                 amount = upbit.get_balance(pick[4:])
                 if amount > 0:
                     upbit.sell_market_order(pick, amount)
-                        print(now, " : sell ", pick)
+                    print(now, " : sell ", pick)
+                else:
+                    print(now, " nothing to sell, ", pick)
             time.sleep(1)
 
     except Exception as e:
