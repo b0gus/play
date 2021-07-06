@@ -34,15 +34,21 @@ def get_current_price(ticker):
     """현재가 조회"""
     return pyupbit.get_orderbook(tickers=ticker)[0]["orderbook_units"][0]["ask_price"]
 
-def most_traded(cnt): #상위 cnt개 티커 선별
+def most_traded(cnt, now): ###changed
     """24시간 누적 거래대금 최대 티커 선별"""
     tickers = pyupbit.get_tickers(fiat="KRW")
     res = requests.request('GET', 'https://api.upbit.com/v1/ticker', params={'markets': ','.join(tickers)})
     ticker_data = res.json()
     traded = {}
-    for i in ticker_data:
-        if i['market'] not in ["KRW-BTC", "KRW-ETH", "KRW-XRP"]:
-            traded[i['market']] = i['acc_trade_price_24h']
+    df_tmp = pyupbit.get_ohlcv("KRW-BTC", interval="day", count=1) # UTC 00:00
+    if df_tmp.index[0] < now < df_tmp.index[0] + datetime.timedelta(hours=12):
+        for i in ticker_data:
+            if i['market'] not in ["KRW-BTC", "KRW-ETH", "KRW-XRP"]:
+                traded[i['market']] = i['acc_trade_price']###changed
+    else:
+        for i in ticker_data:
+            if i['market'] not in ["KRW-BTC", "KRW-ETH", "KRW-XRP"]:
+                traded[i['market']] = i['acc_trade_price_24h'] - i['acc_trade_price']###changed
     sorted_traded = sorted(traded.items(), key=operator.itemgetter(1), reverse=True)
     most_traded_set = set()
     for i in range(cnt):
@@ -65,7 +71,7 @@ def ticker_selection(most_traded_set):
 upbit = pyupbit.Upbit(access, secret)
 print("Autotrade Start")
 
-most_traded_old = most_traded(27)
+most_traded_old = most_traded(27, datetime.datetime.now())
 pick = "KRW-BTC"
 
 # 자동매매 시작
@@ -75,7 +81,7 @@ while True:
         start_time = get_start_time("KRW-BTC") # 최근 시간봉 시작시간
         end_time = start_time + datetime.timedelta(hours=1)
         
-        most_traded_set = most_traded(18)
+        most_traded_set = most_traded(18, now)
         most_traded_set -= most_traded_old #거래량 급증 코인 확인
         ticker = ticker_selection(most_traded_set)
 
@@ -100,7 +106,7 @@ while True:
                     print(now, " : sell ", pick)
                 else:
                     print(now, " nothing to sell, ", pick)
-                    most_traded_old = most_traded(27)
+                    most_traded_old = most_traded(27, now)
                     pick = "KRW-BTC"
             time.sleep(1)
         else:
@@ -114,6 +120,12 @@ while True:
                     if krw > 5000: # 최소거래금액
                         upbit.buy_market_order(pick, krw*0.9995) # 수수료 고려
                         print(now, " : buy ", pick)
+                if (current_price < target_price * 0.99) or (target_price * 1.02 < current_price): ###changed
+                    amount = upbit.get_balance(pick[4:])
+                    if amount > 0:
+                        upbit.sell_market_order(pick, amount)
+                        print(now, " : sell ", pick)
+
             else: # 매도
                 amount = upbit.get_balance(pick[4:])
                 if amount > 0:
