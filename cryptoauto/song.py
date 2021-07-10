@@ -40,17 +40,18 @@ def most_traded(cnt, now): ###changed
     res = requests.request('GET', 'https://api.upbit.com/v1/ticker', params={'markets': ','.join(tickers)})
     ticker_data = res.json()
     traded = {}
+    most_traded_set = set()
     df_tmp = pyupbit.get_ohlcv("KRW-BTC", interval="day", count=1) # UTC 00:00
-    if df_tmp.index[0] < now < df_tmp.index[0] + datetime.timedelta(hours=12):
+    if df_tmp.index[0] < now < df_tmp.index[0] + datetime.timedelta(hours=4):
         for i in ticker_data:
             if i['market'] not in ["KRW-BTC", "KRW-ETH", "KRW-XRP"]:
                 traded[i['market']] = i['acc_trade_price']###changed
-    else:
+    elif df_tmp.index[0] + datetime.timedelta(hours=12) < now < df_tmp.index[0] + datetime.timedelta(hours=16):
         for i in ticker_data:
             if i['market'] not in ["KRW-BTC", "KRW-ETH", "KRW-XRP"]:
                 traded[i['market']] = i['acc_trade_price_24h'] - i['acc_trade_price']###changed
+    else: return most_traded_set
     sorted_traded = sorted(traded.items(), key=operator.itemgetter(1), reverse=True)
-    most_traded_set = set()
     for i in range(cnt):
         most_traded_set.add(sorted_traded[i][0])
     return most_traded_set
@@ -77,7 +78,7 @@ pick = "KRW-BTC"
 # 자동매매 시작
 while True:
     try:
-        now = datetime.datetime.now()
+        now = datetime.datetime.now() + datetime.timedelta(hours=9)
         start_time = get_start_time("KRW-BTC") # 최근 시간봉 시작시간
         end_time = start_time + datetime.timedelta(hours=1)
         
@@ -87,7 +88,7 @@ while True:
 
         if bool(ticker):
             pick = ticker
-            k = 0.3
+            k = 0.2
             if start_time < now < end_time - datetime.timedelta(seconds=10): ## 무한루프 방지(차트보고 바꿀수도)
                 target_price = get_target_price(pick, k) ## 매수 목표가 계산
                 current_price = get_current_price(pick) ## 현재가 조회
