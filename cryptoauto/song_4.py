@@ -98,6 +98,11 @@ while True:
             most_traded_set = most_traded(18, now)
             most_traded_set -= most_traded_old #거래량 급증 코인 확인
             ticker = ticker_selection(most_traded_set)
+        
+        if flag & pick: ## 추가(해결을바라며..)
+            amount = upbit.get_balance(pick[4:])
+            if amount == 0:
+                flag = 0
 
         if bool(ticker):
             pick = ticker
@@ -151,7 +156,6 @@ while True:
                         upbit.sell_market_order(pick, amount)
                         flag = 0
                         print(now, " : sell ", pick)
-
             else: # 매도
                 amount = upbit.get_balance(pick[4:])
                 if amount > 0:
