@@ -99,12 +99,12 @@ while True:
         most_traded_set -= most_traded_old #거래량 급증 코인 확인
         ticker = ticker_selection(most_traded_set)
         
-        if flag & pick: ## 추가(해결을바라며..)
+        if bool(flag) & bool(pick): ## 추가(해결을바라며..)
             amount = upbit.get_balance(pick[4:])
             if amount == 0:
                 flag = 0
 
-        if bool(ticker or pick):
+        if bool(ticker):
             k = -0.1
             if start_time < now < end_time - datetime.timedelta(seconds=10): ## 무한루프 방지(차트보고 바꿀수도)
                 if not flag:
@@ -134,39 +134,40 @@ while True:
                     flag = 0
                     most_traded_old = most_traded(27, now)
                     print(now, " : sell ", pick)
+                    ticker = ''
                 else:
                     print(now, " nothing to sell, ", pick)
                     most_traded_old = most_traded(27, now)
                     pick = "KRW-BTC"
             time.sleep(1)
         else:
-            pick_BTC = "KRW-BTC"
+            pick = "KRW-BTC"
             k = 0.5
             if start_time < now < end_time - datetime.timedelta(seconds=10): ## 무한루프 방지(차트보고 바꿀수도)
                 if not flag:
-                    target_price = get_target_price(pick_BTC, k) ## 매수 목표가 계산
-                current_price = get_current_price(pick_BTC) ## 현재가 조회
+                    target_price = get_target_price(pick, k) ## 매수 목표가 계산
+                current_price = get_current_price(pick) ## 현재가 조회
                 if target_price < current_price:
                     krw = get_balance("KRW") # 잔고 조회
                     if krw > 5000: # 최소거래금액
-                        upbit.buy_market_order(pick_BTC, krw*0.9995) # 수수료 고려
+                        upbit.buy_market_order(pick, krw*0.9995) # 수수료 고려
                         flag = 1
-                        print(now, " : buy ", pick_BTC)
+                        print(now, " : buy ", pick)
                 if (current_price < target_price * 0.99) or (target_price * 1.02 < current_price): ###changed
-                    amount = upbit.get_balance(pick_BTC[4:])
+                    amount = upbit.get_balance(pick[4:])
                     if amount > 0:
-                        upbit.sell_market_order(pick_BTC, amount)
+                        upbit.sell_market_order(pick, amount)
                         flag = 0
-                        print(now, " : sell ", pick_BTC)
+                        print(now, " : sell ", pick)
             else: # 매도
-                amount = upbit.get_balance(pick_BTC[4:])
+                amount = upbit.get_balance(pick[4:])
                 if amount > 0:
-                    upbit.sell_market_order(pick_BTC, amount)
+                    upbit.sell_market_order(pick, amount)
                     flag = 0
-                    print(now, " : sell ", pick_BTC)
+                    print(now, " : sell ", pick)
                     most_traded_old = most_traded(27, now)
                 else:
-                    print(now, " nothing to sell, ", pick_BTC)
+                    print(now, " nothing to sell, ", pick)
                     most_traded_old = most_traded(27, now)
             time.sleep(1)
 
