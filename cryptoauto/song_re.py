@@ -109,7 +109,7 @@ while True:
             if start_time < now < end_time - datetime.timedelta(seconds=10): ## 무한루프 방지(차트보고 바꿀수도)
                 if not flag:
                     pick = ticker
-                target_price = get_target_price(pick, k) ## 매수 목표가 계산
+                    target_price = get_target_price(pick, k) ## 매수 목표가 계산
                 current_price = get_current_price(pick) ## 현재가 조회
                 if target_price < current_price:
                     btc = get_balance("BTC")
@@ -120,11 +120,12 @@ while True:
                         upbit.buy_market_order(pick, krw*0.9995) # 수수료 고려
                         flag = 1
                         print(now, " : buy ", pick)
-                if (current_price < target_price * 0.97) or (target_price * 1.1 < current_price): ###changed
+                if (current_price < target_price * 0.98) or (target_price * 1.2 < current_price): ###changed
                     amount = upbit.get_balance(pick[4:])
                     if amount > 0:
                         upbit.sell_market_order(pick, amount)
                         print(now, " : sell ", pick)
+                        most_traded_old = most_traded(27, now)
                         ticker = ''
                         flag = 0
             else: # 매도
