@@ -177,7 +177,7 @@ if __name__ == "__main__":
     print('start')
     while True:
         try:
-            now = datetime.datetime.now() + datetime.timedelta(hours=9) - datetime.timedelta(minutes=3)
+            now = datetime.datetime.now() - datetime.timedelta(minutes=3)
             if now.minute > 57 or ( len(bot.exception_list) == len(bot.upbit_list) ):
                 print(now, ' : 다음 봉 대기')
                 bot.sleep_until_next()
@@ -193,9 +193,9 @@ if __name__ == "__main__":
                         my_krw = bot.upbit.get_balance(ticker="KRW")
                         if my_krw > 5000:
                             bot.upbit.buy_market_order(targetCoin, int(my_krw*0.9995))
-                            print(now + " : " + targetCoin[4:] + ' 매수')
+                            print(now, " : " + targetCoin[4:] + ' 매수')
                         else:
-                            print(now + " : " + targetCoin + '매수각 (잔고없음)')
+                            print(now, " : " + targetCoin + '매수각 (잔고없음)')
                         bot.sleep_until_next()
                         amount = bot.upbit.get_balance(targetCoin[4:])
                         if amount > 0:
@@ -206,7 +206,7 @@ if __name__ == "__main__":
                 time.sleep(0.5)
             #bot.reset()
             if len(bot.exception_list) == len(bot.upbit_list):
-                print(now + " : 매수할 코인 없음")
+                print(now, " : 매수할 코인 없음")
                 bot.sleep_until_next()
         except Exception as e:
             print(e)
