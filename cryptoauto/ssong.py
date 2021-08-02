@@ -135,6 +135,7 @@ class UpbitBot:
 
     def sleep_until_next(self):
         time.sleep( (59 - now.minute)*60 + 60 - now.second )
+        print("waiting.. next bong...")
         self.reset()
 
 if __name__ == "__main__":
@@ -144,7 +145,7 @@ if __name__ == "__main__":
 
     while True:
         try:
-            now = datetime.datetime.now() + datetime.timedelta(hours=9)
+            now = datetime.datetime.now() #+ datetime.timedelta(hours=9)
             if now.minute > 57 or ( len(bot.exception_list) == len(bot.upbit_list) ):
                 print(now, ' : wait for next bong')
                 bot.sleep_until_next()
