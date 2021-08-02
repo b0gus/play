@@ -37,8 +37,7 @@ class UpbitBot:
         if res.status_code == 429:
             time.sleep(1)
             res=requests.request('GET','https://api.upbit.com/v1/ticker',params={'markets':','.join(tickers)})
-        else:
-            time.sleep(0.5)
+
         data = res.json()
         data.sort(key=(lambda x: x['signed_change_rate']), reverse=True)
         now_time = str(datetime.datetime.now().hour).zfill(2)
@@ -49,7 +48,7 @@ class UpbitBot:
             else:
                 max_coins.append(i['market'])
         self.hubos = max_coins
-    
+
     def calc_price_unit(self, order_price):
         price_unit = 0.01
         if order_price < 10:
@@ -86,7 +85,7 @@ class UpbitBot:
                                     1)
         ror = (data_frame['ror'] - 1).cumsum()[-2] + 1
         return ror
-    
+
     def k_ror_prod(self, data_frame, kvalue, p_unit):
         data_frame['range'] = np.ceil( (data_frame['high'] - data_frame['low']) * kvalue / p_unit ) * p_unit
         data_frame['beforerange'] = (data_frame['high'] - data_frame['low'])
@@ -129,7 +128,7 @@ class UpbitBot:
             return False
         else:
             return ( current_price > target_price )
-    
+
     def reset(self):
         self.exception_list = []
         self.hubos = self.get_max_rise_coins()
@@ -141,7 +140,7 @@ class UpbitBot:
 if __name__ == "__main__":
     bot = UpbitBot("9afurEZJQTqYlNq9an45r2xaB1nNFF6xbTPS7or9", "3fQEcrOLhdWT2Krh122OmR7fuibQ3xNqsDjUi7uV")
     bot.reset()
-    print('start')
+    print('Start!')
 
     while True:
         try:
@@ -171,7 +170,7 @@ if __name__ == "__main__":
                         break
                 else:
                     bot.exception_list.append(targetCoin)
-                time.sleep(0.5)
+                time.sleep(1)
             if len(bot.exception_list) == len(bot.upbit_list):
                 print(now, " : No coin to buy")
                 bot.sleep_until_next()
