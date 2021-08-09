@@ -9,13 +9,13 @@ secret = "3fQEcrOLhdWT2Krh122OmR7fuibQ3xNqsDjUi7uV"
 
 def get_target_price(ticker, k):
     """변동성 돌파 전략으로 매수 목표가 조회"""
-    df = pyupbit.get_ohlcv(ticker, interval="minutes240", count=2)
+    df = pyupbit.get_ohlcv(ticker, interval="minutes60", count=2)
     target_price = df.iloc[0]['close'] + (df.iloc[0]['high'] - df.iloc[0]['low']) * k
     return round(target_price * 0.9995)
 
 def get_start_time(ticker):
     """시작 시간 조회"""
-    df = pyupbit.get_ohlcv(ticker, interval="minutes240", count=1) # 시간봉
+    df = pyupbit.get_ohlcv(ticker, interval="minutes60", count=1) # 시간봉
     start_time = df.index[0]
     return start_time
 
@@ -81,12 +81,12 @@ while True:
     try:
         now = datetime.datetime.now() + datetime.timedelta(hours=9)
         start_time = get_start_time("KRW-BTC") # 최근 시간봉 시작시간
-        end_time = start_time + datetime.timedelta(hours=4)
+        end_time = start_time + datetime.timedelta(hours=1)
 
         df_tmp = pyupbit.get_ohlcv("KRW-BTC", interval="day", count=1) # UTC 00:00
 
-        # 0~4 => flag 1, 12~16 => flag 2
-        if df_tmp.index[0] + datetime.timedelta(minutes=7) < now < df_tmp.index[0] + datetime.timedelta(hours=8):
+        # 0~6 => flag 1, 12~18 => flag 2
+        if df_tmp.index[0] + datetime.timedelta(minutes=7) < now < df_tmp.index[0] + datetime.timedelta(hours=6):
             flag = 1
             most_traded_set = most_traded(18, now, flag)
             most_traded_set -= most_traded_old #거래량 급증 코인 확인
@@ -98,6 +98,9 @@ while True:
                     target_price = get_target_price(pick, k) ## 매수 목표가 계산
                     current_price = get_current_price(pick) ## 현재가 조회
                     if target_price < current_price:
+                        btc = get_balance("BTC")
+                        if btc > 0.00008: # 최소거래금액 이상
+                            upbit.sell_market_order("KRW-BTC", btc*0.9995) # 수수료 고려
                         krw = get_balance("KRW") # 잔고 조회
                         if krw > 5000: # 최소거래금액
                             upbit.buy_market_order(pick, krw*0.9995) # 수수료 고려
@@ -123,7 +126,7 @@ while True:
             else:
                 print(now, " no reasonable ticker")
             flag = 0
-        elif df_tmp.index[0] + datetime.timedelta(hours=12) + datetime.timedelta(minutes=7) < now < df_tmp.index[0] + datetime.timedelta(hours=20):
+        elif df_tmp.index[0] + datetime.timedelta(hours=12) + datetime.timedelta(minutes=7) < now < df_tmp.index[0] + datetime.timedelta(hours=18):
             flag = 2
             most_traded_set = most_traded(18, now, flag)
             most_traded_set -= most_traded_old #거래량 급증 코인 확인
@@ -135,6 +138,9 @@ while True:
                     target_price = get_target_price(pick, k) ## 매수 목표가 계산
                     current_price = get_current_price(pick) ## 현재가 조회
                     if target_price < current_price:
+                        btc = get_balance("BTC")
+                        if btc > 0.00008: # 최소거래금액 이상
+                            upbit.sell_market_order("KRW-BTC", btc*0.9995) # 수수료 고려
                         krw = get_balance("KRW") # 잔고 조회
                         if krw > 5000: # 최소거래금액
                             upbit.buy_market_order(pick, krw*0.9995) # 수수료 고려
