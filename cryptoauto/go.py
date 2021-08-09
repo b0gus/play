@@ -86,7 +86,7 @@ while True:
         df_tmp = pyupbit.get_ohlcv("KRW-BTC", interval="day", count=1) # UTC 00:00
 
         # 0~4 => flag 1, 12~16 => flag 2
-        if df_tmp.index[0] + datetime.timedelta(minutes=7) < now < df_tmp.index[0] + datetime.timedelta(hours=4):
+        if df_tmp.index[0] + datetime.timedelta(minutes=7) < now < df_tmp.index[0] + datetime.timedelta(hours=8):
             flag = 1
             most_traded_set = most_traded(18, now, flag)
             most_traded_set -= most_traded_old #거래량 급증 코인 확인
@@ -123,7 +123,7 @@ while True:
             else:
                 print(now, " no reasonable ticker")
             flag = 0
-        elif df_tmp.index[0] + datetime.timedelta(hours=12) + datetime.timedelta(minutes=7) < now < df_tmp.index[0] + datetime.timedelta(hours=16):
+        elif df_tmp.index[0] + datetime.timedelta(hours=12) + datetime.timedelta(minutes=7) < now < df_tmp.index[0] + datetime.timedelta(hours=20):
             flag = 2
             most_traded_set = most_traded(18, now, flag)
             most_traded_set -= most_traded_old #거래량 급증 코인 확인
@@ -192,4 +192,3 @@ while True:
     except Exception as e:
         print(e)
         time.sleep(1)
-
