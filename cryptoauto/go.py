@@ -122,7 +122,6 @@ while True:
                     else:
                         print(now, " nothing to sell, ", pick)
                         most_traded_old = most_traded(20, now, flag)
-                time.sleep(1)
             else:
                 print(now, " no reasonable ticker")
             flag = 0
@@ -162,7 +161,6 @@ while True:
                     else:
                         print(now, " nothing to sell, ", pick)
                         most_traded_old = most_traded(20, now, flag)
-                time.sleep(1)
             else:
                 print(now, " no reasonable ticker")
             flag = 0
@@ -193,8 +191,9 @@ while True:
                 else:
                     print(now, " nothing to sell, ", pick)
                     most_traded_old = most_traded(20, now, 1)
-            time.sleep(1)
+        time.sleep(1)
 
     except Exception as e:
         print(e)
         time.sleep(1)
+        
