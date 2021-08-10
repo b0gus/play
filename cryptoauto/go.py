@@ -88,9 +88,11 @@ while True:
         # 0~6 => flag 1, 12~18 => flag 2
         if df_tmp.index[0] + datetime.timedelta(minutes=7) < now < df_tmp.index[0] + datetime.timedelta(hours=6):
             flag = 1
-            most_traded_set = most_traded(18, now, flag)
-            most_traded_set -= most_traded_old #거래량 급증 코인 확인
-            ticker = ticker_selection(most_traded_set)
+            krw = get_balance("KRW") # 잔고 조회
+            if krw > 5000: # 최소거래금액
+                most_traded_set = most_traded(18, now, flag)
+                most_traded_set -= most_traded_old #거래량 급증 코인 확인
+                ticker = ticker_selection(most_traded_set)
             if bool(ticker):
                 k = -0.1
                 if start_time < now < end_time - datetime.timedelta(seconds=10): ## 무한루프 방지(차트보고 바꿀수도)
@@ -127,9 +129,10 @@ while True:
             flag = 0
         elif df_tmp.index[0] + datetime.timedelta(hours=12) + datetime.timedelta(minutes=7) < now < df_tmp.index[0] + datetime.timedelta(hours=18):
             flag = 2
-            most_traded_set = most_traded(18, now, flag)
-            most_traded_set -= most_traded_old #거래량 급증 코인 확인
-            ticker = ticker_selection(most_traded_set)
+            if krw > 5000: # 최소거래금액
+                most_traded_set = most_traded(18, now, flag)
+                most_traded_set -= most_traded_old #거래량 급증 코인 확인
+                ticker = ticker_selection(most_traded_set)
             if bool(ticker):
                 k = -0.1
                 if start_time < now < end_time - datetime.timedelta(seconds=10): ## 무한루프 방지(차트보고 바꿀수도)
@@ -196,4 +199,3 @@ while True:
     except Exception as e:
         print(e)
         time.sleep(1)
-
