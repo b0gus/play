@@ -123,7 +123,7 @@ while True:
                         print(now, " nothing to sell, ", pick)
                         most_traded_old = most_traded(20, now, flag)
             else:
-                print(now, " no reasonable ticker")
+                time.sleep(1)
             flag = 0
         elif df_tmp.index[0] + datetime.timedelta(hours=12) + datetime.timedelta(minutes=7) < now < df_tmp.index[0] + datetime.timedelta(hours=18):
             flag = 2
@@ -162,7 +162,7 @@ while True:
                         print(now, " nothing to sell, ", pick)
                         most_traded_old = most_traded(20, now, flag)
             else:
-                print(now, " no reasonable ticker")
+                time.sleep(1)
             flag = 0
         else:
             pick = "KRW-BTC"
@@ -196,4 +196,4 @@ while True:
     except Exception as e:
         print(e)
         time.sleep(1)
-        
+
