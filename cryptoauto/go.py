@@ -74,27 +74,30 @@ upbit = pyupbit.Upbit(access, secret)
 print("Autotrade Start")
 
 most_traded_old = most_traded(27, datetime.datetime.now(), 1)
-pick = "KRW-BTC"
+# pick = "KRW-BTC"
+
+time.sleep(10)
 
 # 자동매매 시작
 while True:
     try:
         now = datetime.datetime.now() + datetime.timedelta(hours=9)
-        start_time = get_start_time("KRW-BTC") # 최근 시간봉 시작시간
-        end_time = start_time + datetime.timedelta(hours=1)
+        start_time = get_start_time("KRW-BTC") + datetime.timedelta(minutes=1) # 최근 시간봉 시작시간
+        end_time = start_time + datetime.timedelta(hours=1) + datetime.timedelta(minutes=1)
 
         df_tmp = pyupbit.get_ohlcv("KRW-BTC", interval="day", count=1) # UTC 00:00
 
         # 0~6 => flag 1, 12~18 => flag 2
-        if df_tmp.index[0] + datetime.timedelta(minutes=7) < now < df_tmp.index[0] + datetime.timedelta(hours=6):
+        if df_tmp.index[0] + datetime.timedelta(minutes=1) < now < df_tmp.index[0] + datetime.timedelta(hours=6) + datetime.timedelta(minutes=1):
             flag = 1
             krw = get_balance("KRW") # 잔고 조회
             if krw > 5000: # 최소거래금액
                 most_traded_set = most_traded(18, now, flag)
                 most_traded_set -= most_traded_old #거래량 급증 코인 확인
                 ticker = ticker_selection(most_traded_set)
+
             if bool(ticker):
-                k = -0.1
+                k = 0.1
                 if start_time < now < end_time - datetime.timedelta(seconds=10): ## 무한루프 방지(차트보고 바꿀수도)
                     pick = ticker
                     target_price = get_target_price(pick, k) ## 매수 목표가 계산
@@ -126,16 +129,17 @@ while True:
                         most_traded_old = most_traded(20, now, flag)
             else:
                 time.sleep(1)
-            flag = 0
-        elif df_tmp.index[0] + datetime.timedelta(hours=12) + datetime.timedelta(minutes=7) < now < df_tmp.index[0] + datetime.timedelta(hours=18):
+
+        elif df_tmp.index[0] + datetime.timedelta(hours=12) + datetime.timedelta(minutes=1) < now < df_tmp.index[0] + datetime.timedelta(hours=18) + datetime.timedelta(minutes=1):
             flag = 2
-            krw=get_balance("KRW")
+            krw = get_balance("KRW") # 잔고 조회
             if krw > 5000: # 최소거래금액
                 most_traded_set = most_traded(18, now, flag)
                 most_traded_set -= most_traded_old #거래량 급증 코인 확인
                 ticker = ticker_selection(most_traded_set)
+
             if bool(ticker):
-                k = -0.1
+                k = 0.1
                 if start_time < now < end_time - datetime.timedelta(seconds=10): ## 무한루프 방지(차트보고 바꿀수도)
                     pick = ticker
                     target_price = get_target_price(pick, k) ## 매수 목표가 계산
@@ -167,7 +171,7 @@ while True:
                         most_traded_old = most_traded(20, now, flag)
             else:
                 time.sleep(1)
-            flag = 0
+
         else:
             pick = "KRW-BTC"
             k = 0.3
@@ -189,7 +193,7 @@ while True:
                 amount = upbit.get_balance(pick[4:])
                 if amount > 0:
                     upbit.sell_market_order(pick, amount)
-                    flag = 0
+                    flag = 1
                     print(now, " : sell ", pick)
                     most_traded_old = most_traded(20, now, 1)
                 else:
