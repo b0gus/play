@@ -129,6 +129,7 @@ while True:
             flag = 0
         elif df_tmp.index[0] + datetime.timedelta(hours=12) + datetime.timedelta(minutes=7) < now < df_tmp.index[0] + datetime.timedelta(hours=18):
             flag = 2
+            krw=get_balance("KRW")
             if krw > 5000: # 최소거래금액
                 most_traded_set = most_traded(18, now, flag)
                 most_traded_set -= most_traded_old #거래량 급증 코인 확인
