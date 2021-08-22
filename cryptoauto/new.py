@@ -2,7 +2,6 @@ import time
 import pyupbit
 import datetime
 import requests
-import operator
 
 access = "9afurEZJQTqYlNq9an45r2xaB1nNFF6xbTPS7or9"
 secret = "3fQEcrOLhdWT2Krh122OmR7fuibQ3xNqsDjUi7uV"
@@ -40,12 +39,12 @@ def ticker_selection(flag): ###changed
     res = requests.request('GET', 'https://api.upbit.com/v1/ticker', params={'markets': ','.join(tickers)})
     ticker_dat = res.json()
     traded = {}
-    ticker_data = []
+    ticker_data = list()
     ticker_trade_price = 0
     
     for i in ticker_dat:
         if 0.01 < i['signed_change_rate']:
-            ticker_data.append(ticker_dat[i])
+            ticker_data.append(i)
 
     ticker = ''
 
@@ -70,13 +69,16 @@ upbit = pyupbit.Upbit(access, secret)
 print("Autotrade Start")
 
 time.sleep(7)
+pick = ''
+now_pick = ''
+now_price = 0
 
 # 자동매매 시작
 while True:
     try:
         now = datetime.datetime.now() + datetime.timedelta(hours=9)
-        start_time = get_start_time("KRW-BTC") + datetime.timedelta(minutes=3) # 최근 시간봉 시작시간
-        end_time = start_time + datetime.timedelta(hours=1) + datetime.timedelta(minutes=3)
+        start_time = get_start_time("KRW-BTC") - datetime.timedelta(minutes=3) # 최근 시간봉 시작시간
+        end_time = start_time + datetime.timedelta(hours=1) - datetime.timedelta(minutes=3)
 
         df_tmp = pyupbit.get_ohlcv("KRW-BTC", interval="day", count=1) # UTC 00:00
 
@@ -98,9 +100,19 @@ while True:
                         if btc > 0.00008: # 최소거래금액 이상
                             upbit.sell_market_order("KRW-BTC", btc*0.9995) # 수수료 고려
                         krw = get_balance("KRW") # 잔고 조회
-                        if krw > 5000: # 최소거래금액
+                        if krw > 5000 and pick != now_pick: # 최소거래금액
                             upbit.buy_market_order(pick, krw*0.9995) # 수수료 고려
                             print(now, " : buy ", pick)
+                            now_pick = pick
+                            now_price = current_price
+                    now_amount = upbit.get_balance(now_pick[4:])
+                    if bool(now_amount):
+                        if now_price * 1.06 < get_current_price(now_pick):
+                            upbit.sell_market_order(now_pick, amount)
+                            print("Good!")
+                        elif get_current_price(now_pick) < now_price * 1.03:
+                            upbit.sell_market_order(now_pick, amount)
+                            print("Bad!")
                 else: # 매도
                     amount = upbit.get_balance(pick[4:])
                     if amount > 0:
